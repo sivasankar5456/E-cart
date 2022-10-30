@@ -16,11 +16,12 @@ const CartList = () => {
 
     let clearCart = () => {
 
+
         localStorage.clear("Ecart");
         window.location.reload();
     }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     let increaseCount = (id, count) => {
 
@@ -29,7 +30,7 @@ const CartList = () => {
         let x = localStorage.getItem("Ecart");
         x = JSON.parse(x);
         x.forEach((cart) => {
-            if (cart.id == id) {
+            if (cart.id === id) {
                 cart.itemCount = Count;
             }
         })
@@ -39,16 +40,16 @@ const CartList = () => {
         window.location.reload();
 
     }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-let decreaseCount = (id, count) => {
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    let decreaseCount = (id, count) => {
 
         let Count = count - 1
 
         let x = localStorage.getItem("Ecart");
         x = JSON.parse(x);
         x.forEach((cart) => {
-            if (cart.id == id) {
+            if (cart.id === id) {
                 cart.itemCount = Count;
             }
         })
@@ -60,23 +61,38 @@ let decreaseCount = (id, count) => {
     }
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     let handleDelete = (index) => {
         let x = localStorage.getItem("Ecart");
         x = JSON.parse(x)
-        x.splice(index,1)
+        x.splice(index, 1)
         x = JSON.stringify(x);
         localStorage.setItem("Ecart", x);
         window.location.reload();
 
     }
-    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+    var amountSum = 0;
+    let x = localStorage.getItem("Ecart")
+    x = JSON.parse(x)
+    function count() {
+
+
+        for (let i in x) {
+            amountSum += Math.floor(x[i].price * x[i].itemCount)
+        }
+
+    }
+    count();
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     return (<div className="parent_cart">
-
+       <p><b> Shopping Cart</b></p>
         {cartList && cartList.map((list, index) => {
-            return (<>
+            return (
                 <div className="cart_list" key={list.id}>
 
                     <div className="div_img">
@@ -84,7 +100,7 @@ let decreaseCount = (id, count) => {
 
                     </div>
                     <div className="title">
-                    <h4>{list.title}</h4>
+                        <h4>{list.title}</h4>
                     </div>
 
                     <div className="counter">
@@ -97,20 +113,35 @@ let decreaseCount = (id, count) => {
                         <div className="count_number" >{list.itemCount}</div>
 
                         <div><button onClick={() => { increaseCount(list.id, list.itemCount) }} >+</button></div>
+
                     </div>
+
                     <h1>{Math.floor(list.itemCount * list.price)}.00</h1>
+<hr />
                 </div>
-                <hr />
-            </>
             )
         })
 
 
         }
+        <div>
 
-        <button id="clear_cart" onClick={clearCart}>Clear Cart</button>
-<h1>{}</h1>
+            <button id="clear_cart" onClick={clearCart}>Clear Cart</button>
+<center>
+
+            <span><b> Total:</b></span><label htmlFor=""> ${amountSum}</label><br />
+            <span><b>Shipping :</b></span><label htmlFor=""> Free Shopping</label>
+            <br />
+            <div className="ProccedDiv">
+
+            <button id="btn" >Proceed Checkout</button>
+            </div>
+</center>
        
+        </div>
+
+
+
     </div>);
 }
 

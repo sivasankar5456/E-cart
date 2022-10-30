@@ -1,46 +1,64 @@
 
 import './App.css';
-import {BrowserRouter as Router,Route,Switch,Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Shope from './components/Shope';
 import Shope1 from './components/Shope1';
 import CartList from './components/CartList';
 import Blog from './components/Blog';
+import Search from './components/Search';
 
 function App() {
   return (
     <>
       <Router>
-    <div className="App">
-        <Navbar />
-        <Switch>
+        <div className="App">
+          <Navbar />
+          <Switch>
 
-          <Route exact path="/">
-            <Home  />
-          </Route>
-          <Route path="/shope1">
-          <Shope1/>
-          </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
 
-          <Route exact path="/shop:id">
-          <Shope/>
-          </Route>
-         
+            <Route exact path="/home:searchVal">
+              <Home />
+            </Route>
 
-        
+            <Route path="/shope1">
+              <Shope1 />
+            </Route>
 
-          <Route path="/cartList">
-          <CartList/>
-          </Route>
-          <Route path="/blog">
-          <Blog/>
-          </Route>
+            <Route exact path="/shop:id">
+              <Shope />
+            </Route>
 
 
-        </Switch>
+            <Route path="/cartList">
+              <CartList />
+            </Route>
 
-    </div>
+            <Route path="/blog">
+              <Blog/>
+            </Route>
+
+            <Route path="/search">
+              <Search />
+            </Route>
+
+          </Switch>
+        </div>
+        <section>
+
+          <Link to="/search">
+            <div className='Search' >
+
+              <img height={25} src="https://img.icons8.com/fluency-systems-regular/2x/search.png" alt="" />
+
+            </div>
+          </Link>
+
+        </section>
       </Router>
 
 

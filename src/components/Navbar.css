@@ -132,11 +132,8 @@ a{
     position:fixed;
     left: 8px;
     top: 400px;
-    border: solid 1px grey;
-}
-section{
-   
-   
+    border: solid 1px white;
+    box-shadow: 1px 1px 4px 0px black;
 }
 
 

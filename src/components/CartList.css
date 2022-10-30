@@ -13,11 +13,15 @@ padding: 0px;
     background-size: 1.8rem 1.8rem;
     scroll-snap-align: center;
     border-radius: 50px;
-    margin-left:40px;
+    margin-left:60px;
     padding: 20px;
     position: relative;
     /* color: #0f4e8c; */
 
+}
+p{
+    font-size: 22px;
+    text-align: center;
 }
 h1{
     font-size: 18px;
@@ -29,6 +33,7 @@ h1{
     align-items: center;
     justify-content: space-between;
     padding: 15px;
+    border-bottom: solid 1px rgb(138, 136, 136);
 }
 
 .div_img{
@@ -87,6 +92,15 @@ margin-right: 5px;
     font-size: 20px;
 }
 
+.ProccedDiv{
+    /* background-color: red; */
+    height: 70px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 button{
     width: 20px;
     font-size: 38px;
@@ -98,6 +112,27 @@ button{
     width: 250px;
 }
 
+#btn{
+    height: 50px;
+    width: 200px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border-radius: 20px;
+    color: #fa8907;
+    font-size: 17px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+#btn:active{
+    height: 35px;
+    width: 160px;
+}
+
+b,label{
+    font-size: 20px;
+}
 
 
 
