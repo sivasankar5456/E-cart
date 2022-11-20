@@ -8,6 +8,9 @@ import Shope1 from './components/Shope1';
 import CartList from './components/CartList';
 import Blog from './components/Blog';
 import Search from './components/Search';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Login1 from './components/Login1';
 
 function App() {
   return (
@@ -39,12 +42,25 @@ function App() {
             </Route>
 
             <Route path="/blog">
-              <Blog/>
+              <Blog />
             </Route>
 
             <Route path="/search">
               <Search />
             </Route>
+
+            <Route path="/signup">
+              <Signup />
+            </Route>
+            
+            <Route path="/login">
+              <Login1/>
+            </Route>
+
+            <Route path="/login:inputValue">
+              <Login />
+            </Route>
+           
 
           </Switch>
         </div>

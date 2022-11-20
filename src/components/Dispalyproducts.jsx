@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom'
-import useFetch from "./useFetch";
 import './Displalyproducts.css';
 import { useEffect,} from 'react';
 // import {useState } from 'react';
 
 
-const Dispalyproducts = () => {
+const Dispalyproducts = ({products,error}) => {
 
-    let { data: products, error } = useFetch("https://fakestoreapi.com/products");
 // const [cart,setCart]=useState("")
 
 useEffect(()=>{
@@ -48,9 +46,8 @@ localStorage.setItem("Ecart",x)
 
 let  invokeFunc=()=>{
     setTimeout(()=>{
-
         window.location.reload();
-    },5)
+    },0)
 }
 
 

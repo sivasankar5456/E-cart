@@ -129,7 +129,7 @@ const CartList = () => {
             <button id="clear_cart" onClick={clearCart}>Clear Cart</button>
 <center>
 
-            <span><b> Total:</b></span><label htmlFor=""> ${amountSum}</label><br />
+            <span><b> Total:</b></span><label htmlFor=""> ${amountSum}.00</label><br />
             <span><b>Shipping :</b></span><label htmlFor=""> Free Shopping</label>
             <br />
             <div className="ProccedDiv">

@@ -3,19 +3,22 @@ import useFetch from "./useFetch";
 import './Shop.css'
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+
 const Shope = () => {
 
 const {id}=useParams();
 
 
+let { data: products, error } = useFetch("https://fakestoreapi.com/products");
 
-    let { data: product, error } = useFetch("https://fakestoreapi.com/products/"+id);
+    let { data: product } = useFetch("https://fakestoreapi.com/products/"+id);
 
 
     
     return (
         <section className="product_content">
 <div className='home_backkground'></div>
+
 
           
 
@@ -37,7 +40,8 @@ const {id}=useParams();
               </div>
                 }
             </div>
-<Dispalyproducts/>
+< Dispalyproducts products={products} error={error}/>
+
         </section>
     );
 }

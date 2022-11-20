@@ -1,13 +1,17 @@
 
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import useFetch from "./useFetch";
+
 import Dispalyproducts from './Dispalyproducts';
 import './Home.css';
 
 
 const Home = () => {
    
+    let { data: products, error } = useFetch("https://fakestoreapi.com/products");
     let {searchVal}=useParams();
-
+  
     return (
 <section className='Home_Content' >
 <div id='home_backkground'>
@@ -40,14 +44,20 @@ const Home = () => {
 
 </div>
 
+
 <div className="disply_products1">
 
-< Dispalyproducts />
+{products &&< Dispalyproducts products={products.filter((product)=>{return product.title.toLowerCase().includes(searchVal.toLowerCase())})} error={error} />}
+
+
+
+{< Dispalyproducts products={products} error={error}/>}
+
 </div>
 <div className="disply_products2">
 <h2>Related Products</h2>
 
-< Dispalyproducts />
+< Dispalyproducts products={products} error={error}/>
 </div>
 
 </section>

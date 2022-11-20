@@ -6,9 +6,10 @@ import { useState } from "react";
 const Shope1 = () => {
 
 
+  let { data: products, error } = useFetch("https://fakestoreapi.com/products");
 
 
-    let { data: product, error } = useFetch("https://fakestoreapi.com/products/1");
+    let { data: product} = useFetch("https://fakestoreapi.com/products/1");
 
 
     
@@ -35,7 +36,8 @@ const Shope1 = () => {
               </div>
                 }
             </div>
-<Dispalyproducts/>
+< Dispalyproducts products={products} error={error}/>
+
         </section>
     );
 }
